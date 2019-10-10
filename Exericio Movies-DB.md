@@ -74,8 +74,14 @@ existirem.
     R: select distinct p.nome from pessoa p natural join elenco e where e papel= 'fig';
 
 15. Retornar quantos comentários o usuário cinefilo@gmail.com fez.
+    
+    R: select count(coment) from avaliacao where email='cinefilo@gmail.com';
+    
 16. Retornar o país e a quantidade de atores cadastrados nele
 17. Retornar a pessoa mais velha cadastrada (pode existir mais de 1)
 18. Retornar o filme com a menor duração (pode existir mais de 1)
+
+    R: select min(dur) from filme;
+
 19. Retornar o nome do filme e número de atores no elenco
 20. Retornar o nome do filme e a média de número de estrela recebidas
