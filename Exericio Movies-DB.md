@@ -56,15 +56,23 @@ existirem.
     R: select p.nome from pessoa p natural left join elenco e where e.oscar is null;
     //Outra forma 
       select p.nome from pessoa p where p.codp not in (select codp from elenco);
-    
+    // outra forma
+       select p.nome from pessoa p except select p.nome from pessoa p natural join elenco e;
+    // outra forma
+        select p.nome from pessoa p where not exists(select e.socar from elenco e where e.codp = p.codp);
+     
 12. Retornar, caso existe, um filme que não possua nenhuma avaliação
 
     R: 
 
 13. Retornar o nome e a duração dos filmes que foram lançados nos anos 1960
-
+    
+    R: select f.titulo, f.dur from filmes f where f.anof >= 1960 and f.anol <= 1969; 
 
 14. Retornar os nomes dos atores que já tiveram o papel de figur em qualquer filme
+
+    R: select distinct p.nome from pessoa p natural join elenco e where e papel= 'fig';
+
 15. Retornar quantos comentários o usuário cinefilo@gmail.com fez.
 16. Retornar o país e a quantidade de atores cadastrados nele
 17. Retornar a pessoa mais velha cadastrada (pode existir mais de 1)
