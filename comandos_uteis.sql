@@ -6,3 +6,7 @@ select a.nome from (select min(dtnasc) as eldery from aluno where codc = 11) t j
 
 select nomep, sum(qtdade) from exp group by 1;
 
+explain select distinct p.nome from filme f  join pessoa p on(f.codd = p.codp) join elenco e on (e.codp = p.codp);
+
+select nome from pessoa p natural join elenco e intersect select nome from pessoa p join filme f on p.codp = f.codd;
+
