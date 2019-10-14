@@ -78,10 +78,23 @@ existirem.
     R: select count(coment) from avaliacao where email='cinefilo@gmail.com';
     
 16. Retornar o país e a quantidade de atores cadastrados nele
+    
+    R: select paisn, count(nome) from pessoa group by 1;
+
 17. Retornar a pessoa mais velha cadastrada (pode existir mais de 1)
+    
+    R: select nome from pessoa where dtnasc = (select min(dtnasc) from pessoa);
+        
 18. Retornar o filme com a menor duração (pode existir mais de 1)
 
-    R: select min(dur) from filme;
+    R: select titulo from filme where dur = (select min(dur) from filme);
 
 19. Retornar o nome do filme e número de atores no elenco
+
+    R: select f.titulo, count(*) from filme f natural join elenco e group by 1;
+    
 20. Retornar o nome do filme e a média de número de estrela recebidas
+
+    R: select f.titulo, avg(nestrelas) from filme f natural join avaliacao e group by 1 order by 2;
+    
+   
