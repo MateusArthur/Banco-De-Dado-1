@@ -63,7 +63,7 @@ existirem.
      
 12. Retornar, caso existe, um filme que não possua nenhuma avaliação
 
-    R: 
+    R: select f.titulo from filme f natural join avaliacao a where a.nestrelas is null;select f.titulo from filme f natural join elenco e group by f.titulo having count(*) = (select max (t.maior) from (select count(*) as maior from elenco group by codf) t);
 
 13. Retornar o nome e a duração dos filmes que foram lançados nos anos 1960
     
